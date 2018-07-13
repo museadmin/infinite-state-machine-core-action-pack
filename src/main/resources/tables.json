@@ -66,8 +66,8 @@
           "not_null" : false,
           "name" : "status",
           "type" : "INTEGER",
-          "default" : "1",
-          "comment" : "True 1 or False 0"
+          "default" : "true",
+          "comment" : "State is true or false"
         },
         {
           "primary_key" : false,
@@ -112,7 +112,7 @@
           "name" : "phase",
           "type" : "CHAR",
           "default" : "STARTUP",
-          "comment" : "The run phase"
+          "comment" : "The run phase this action is valid in"
         },
         {
           "primary_key" : false,
@@ -120,15 +120,15 @@
           "name" : "payload",
           "type" : "CHAR",
           "default" : "",
-          "comment" : "Any payload sent via msg for action"
+          "comment" : "Any payload required for action"
         },
         {
           "primary_key" : false,
           "not_null" : true,
-          "name" : "activation",
+          "name" : "activate",
           "type" : "INTEGER",
-          "default" : "0",
-          "comment" : "The activation. ACT = 1 or SKIP = 0"
+          "default" : "false",
+          "comment" : "Is this action active or not?"
         }
       ]
     }

@@ -1,5 +1,7 @@
 {
   "actions" : [
-    ["CONFIRM_READY_TO_RUN", "ALL", "null", "true"]
+    ["CONFIRM_READY_TO_RUN", "ALL", "null", "true"],
+    ["NORMAL_SHUTDOWN", "ALL", "null", "false"],
+    ["EMERGENCY_SHUTDOWN", "ALL", "null", "false"]
   ]
 }

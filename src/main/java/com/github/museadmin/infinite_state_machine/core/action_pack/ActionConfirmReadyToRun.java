@@ -9,7 +9,7 @@ public class ActionConfirmReadyToRun extends Action implements IAction {
    * The principal method for execution of the action
    */
   public void execute() {
-
+    System.out.println("In ActionConfirmReadyToRun");
   }
 
 }

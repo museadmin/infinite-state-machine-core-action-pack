@@ -6,14 +6,50 @@
 
     <groupId>com.github.museadmin</groupId>
     <artifactId>infinite-state-machine-core-action-pack</artifactId>
-    <version>${infinite.state.machine.core.action.pack}</version>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>The core actions required to bootstrap the infinite-state-machine project</description>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <!--The identifier of the parent POM-->
     <parent>
         <groupId>com.github.museadmin</groupId>
         <artifactId>infinite-state-machine-parent-pom</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.1</version>
     </parent>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Bradley Atkins</name>
+            <email>bradley.atkins@bjss.com</email>
+            <organization>Muse</organization>
+            <organizationUrl>https://github.com/museadmin/infinite-state-machine</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>git@github.com:museadmin/infinite-state-machine-core-action-pack.git</connection>
+        <developerConnection>git@github.com:museadmin/infinite-state-machine-core-action-pack.git</developerConnection>
+        <url>https://github.com/museadmin/infinite-state-machine-core-action-pack</url>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <resources>
@@ -29,6 +65,17 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -36,12 +83,12 @@
         <dependency>
             <groupId>com.github.museadmin</groupId>
             <artifactId>infinite-state-machine</artifactId>
-            <version>${infinite.state.machine.version}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.github.museadmin</groupId>
             <artifactId>infinite-state-machine-common</artifactId>
-            <version>${infinite.state.machine.common}</version>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

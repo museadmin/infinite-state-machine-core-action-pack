@@ -1,0 +1,40 @@
+{
+  "items" : [
+    {
+      "meta" : {
+        "table" : "states",
+        "crud" : "insert"
+      },
+      "columns" : [
+        "status",
+        "state_flag",
+        "note"
+      ],
+      "values" : [
+        ["false", "READY_TO_RUN", "We are ready to run"],
+        ["false", "EMERGENCY_SHUTDOWN", "Run phase is emergency shutdown"],
+        ["false", "NORMAL_SHUTDOWN", "Run phase is shutting down normally"],
+        ["false", "RUNNING", "Run phase is running"],
+        ["true", "STARTING", "Run phase is starting"],
+        ["false", "STOPPED", "Run phase is stopped"]
+      ]
+    },
+    {
+      "meta" : {
+        "table" : "actions",
+        "crud" : "insert"
+      },
+      "columns" : [
+        "action",
+        "phase",
+        "payload",
+        "activated"
+      ],
+      "values" : [
+        ["CONFIRM_READY_TO_RUN", "ALL", "null", "true"],
+        ["NORMAL_SHUTDOWN", "ALL", "null", "false"],
+        ["EMERGENCY_SHUTDOWN", "ALL", "null", "false"]
+      ]
+    }
+  ]
+}

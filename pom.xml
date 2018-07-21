@@ -8,14 +8,14 @@
     <artifactId>infinite-state-machine-core-action-pack</artifactId>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>The core actions required to bootstrap the infinite-state-machine project</description>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <packaging>jar</packaging>
 
     <!--The identifier of the parent POM-->
     <parent>
         <groupId>com.github.museadmin</groupId>
         <artifactId>infinite-state-machine-parent-pom</artifactId>
-        <version>1.1</version>
+        <version>1.1.0</version>
     </parent>
 
     <licenses>
@@ -63,12 +63,12 @@
         <dependency>
             <groupId>com.github.museadmin</groupId>
             <artifactId>infinite-state-machine</artifactId>
-            <version>1.1</version>
+            <version>1.1.1</version>
         </dependency>
         <dependency>
             <groupId>com.github.museadmin</groupId>
             <artifactId>infinite-state-machine-common</artifactId>
-            <version>1.1.0</version>
+            <version>1.1.1</version>
         </dependency>
     </dependencies>
 

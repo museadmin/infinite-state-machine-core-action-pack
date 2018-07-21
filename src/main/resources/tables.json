@@ -51,7 +51,7 @@
       ]
     },
     {
-      "name" : "state",
+      "name" : "states",
       "columns" : [
         {
           "primary_key" : true,
@@ -88,12 +88,12 @@
       ]
     },
     {
-      "name" : "state_machine",
+      "name" : "actions",
       "columns" : [
         {
           "primary_key" : true,
           "not_null" : true,
-          "name" : "state_machine_id",
+          "name" : "action_id",
           "type" : "INTEGER",
           "default" : "",
           "comment" : ""
@@ -125,7 +125,7 @@
         {
           "primary_key" : false,
           "not_null" : true,
-          "name" : "activate",
+          "name" : "activated",
           "type" : "INTEGER",
           "default" : "false",
           "comment" : "Is this action active or not?"

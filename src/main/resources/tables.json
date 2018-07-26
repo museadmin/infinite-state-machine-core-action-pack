@@ -56,7 +56,7 @@
         {
           "primary_key" : true,
           "not_null" : true ,
-          "name" : "state_id",
+          "name" : "id",
           "type" : "INTEGER",
           "default" : "",
           "comment" : ""
@@ -64,16 +64,16 @@
         {
           "primary_key" : false,
           "not_null" : false,
-          "name" : "status",
-          "type" : "INTEGER",
-          "default" : "true",
-          "comment" : "State is true or false"
+          "name" : "state",
+          "type" : "BOOLEAN",
+          "default" : "0",
+          "comment" : "State is true (1) or false (0)"
         },
         {
           "primary_key" : false,
           "not_null" : true,
           "name" : "state_flag",
-          "type" : "CHAR",
+          "type" : "TEXT",
           "default" : "",
           "comment" : "Textual flag"
         },
@@ -81,7 +81,7 @@
           "primary_key" : false,
           "not_null" : false,
           "name" : "note",
-          "type" : "CHAR",
+          "type" : "TEXT",
           "default" : "",
           "comment" : "Note explaining what this state is for"
         }
@@ -93,7 +93,7 @@
         {
           "primary_key" : true,
           "not_null" : true,
-          "name" : "action_id",
+          "name" : "id",
           "type" : "INTEGER",
           "default" : "",
           "comment" : ""
@@ -102,7 +102,7 @@
           "primary_key" : false,
           "not_null" : false,
           "name" : "action",
-          "type" : "CHAR",
+          "type" : "TEXT",
           "default" : "",
           "comment" : "The textual name. e.g. PROCESS_NORMAL_SHUTDOWN"
         },
@@ -110,7 +110,7 @@
           "primary_key" : false,
           "not_null" : true,
           "name" : "phase",
-          "type" : "CHAR",
+          "type" : "TEXT",
           "default" : "STARTUP",
           "comment" : "The run phase this action is valid in"
         },
@@ -118,17 +118,86 @@
           "primary_key" : false,
           "not_null" : false,
           "name" : "payload",
-          "type" : "CHAR",
+          "type" : "TEXT",
           "default" : "",
           "comment" : "Any payload required for action"
         },
         {
           "primary_key" : false,
           "not_null" : true,
-          "name" : "activated",
-          "type" : "INTEGER",
-          "default" : "false",
+          "name" : "activate",
+          "type" : "BOOLEAN",
+          "default" : "0",
           "comment" : "Is this action active or not?"
+        }
+      ]
+    },
+    {
+      "name" : "messages",
+      "columns" : [
+        {
+          "primary_key" : true,
+          "not_null" : true,
+          "name" : "id",
+          "type" : "INTEGER",
+          "default" : "",
+          "comment" : "Record ID in recipient messages table"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "sender",
+          "type" : "TEXT",
+          "default" : "",
+          "comment" : "Return address of sender"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "sender_id",
+          "type" : "INTEGER",
+          "default" : "",
+          "comment" : "Record ID in sender messages table"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "action",
+          "type" : "TEXT",
+          "default" : "",
+          "comment" : "Name of the action that handles this message"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "payload",
+          "type" : "TEXT",
+          "default" : "",
+          "comment" : "Json body of msg payload"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "sent",
+          "type" : "TEXT",
+          "default" : "",
+          "comment" : "Timestamp msg sent by sender"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "received",
+          "type" : "TEXT",
+          "default" : "",
+          "comment" : "Timestamp ism loaded message into database"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "processed",
+          "type" : "BOOLEAN",
+          "default" : "false",
+          "comment" : "Has the message been processed"
         }
       ]
     }

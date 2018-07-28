@@ -1,7 +1,7 @@
 package com.github.museadmin.infinite_state_machine.core.action_pack;
 
-import com.github.museadmin.infinite_state_machine.common.action.Action;
-import com.github.museadmin.infinite_state_machine.common.action.IAction;
+import com.github.museadmin.infinite_state_machine.data.access.action.Action;
+import com.github.museadmin.infinite_state_machine.data.access.action.IAction;
 
 import java.util.ArrayList;
 
@@ -19,14 +19,14 @@ public class ActionConfirmReadyToRun extends Action implements IAction {
 
     if (actionIsNotActive()) {return;}
 
-    ArrayList <String> results = iDataAccessLayer.executeSqlQuery(
+    ArrayList <String> results = dataAccessLayer.executeSqlQuery(
       "select id from actions where action like = 'BEFORE_%'" +
         " and active = '" + SQLTRUE + "';"
     );
 
     if (results == null || results.size() == 0) {return;}
 
-    iDataAccessLayer.executeSqlStatement(
+    dataAccessLayer.executeSqlStatement(
       "update states set state = '" + SQLTRUE + "' where " +
         "state_flag = 'READY_TO_RUN';"
     );

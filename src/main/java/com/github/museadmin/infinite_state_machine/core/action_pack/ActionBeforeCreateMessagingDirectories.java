@@ -6,13 +6,15 @@ import com.github.museadmin.infinite_state_machine.data.access.action.IAction;
 /**
  * Check if any new messages have arrived in the in directory
  */
-public class ActionCheckForNewMessages implements IAction {
+public class ActionBeforeCreateMessagingDirectories implements IAction {
 
   /**
    * The principal method for execution of the action
    */
   public void execute() {
-    System.out.println("In ActionCheckForNewMessages");
+    System.out.println("In ActionBeforeCreateMessagingDirectories");
+
+
   }
 
 }

@@ -104,7 +104,7 @@
           "name" : "action",
           "type" : "TEXT",
           "default" : "",
-          "comment" : "The textual name. e.g. PROCESS_NORMAL_SHUTDOWN"
+          "comment" : "The textual name. e.g. ActionConfirmReadyToRun"
         },
         {
           "primary_key" : false,
@@ -125,7 +125,7 @@
         {
           "primary_key" : false,
           "not_null" : true,
-          "name" : "activate",
+          "name" : "active",
           "type" : "BOOLEAN",
           "default" : "0",
           "comment" : "Is this action active or not?"

@@ -6,7 +6,7 @@
         "crud" : "insert"
       },
       "columns" : [
-        "status",
+        "state",
         "state_flag",
         "note"
       ],
@@ -28,12 +28,16 @@
         "action",
         "phase",
         "payload",
-        "activated"
+        "active"
       ],
       "values" : [
-        ["CONFIRM_READY_TO_RUN", "ALL", "null", "1"],
-        ["NORMAL_SHUTDOWN", "ALL", "null", "0"],
-        ["EMERGENCY_SHUTDOWN", "ALL", "null", "0"]
+        ["ActionConfirmReadyToRun", "STARTING", "null", "1"],
+        ["ActionNormalShutdown", "ALL", "null", "0"],
+        ["ActionEmergencyShutdown", "ALL", "null", "0"],
+        ["ActionCheckForNewMessages", "RUNNING", "null", "0"],
+        ["ActionPickUpInboundMessages", "RUNNING", "null", "0"],
+        ["ActionProcessInboundMessages", "RUNNING", "null", "0"],
+        ["ActionBeforeCreateMessagingDirectories", "STARTING", "null", "1"]
       ]
     }
   ]

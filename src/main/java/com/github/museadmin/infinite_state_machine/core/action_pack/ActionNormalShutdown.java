@@ -1,7 +1,8 @@
 package com.github.museadmin.infinite_state_machine.core.action_pack;
 
-import com.github.museadmin.infinite_state_machine.common.action.Action;
-import com.github.museadmin.infinite_state_machine.common.action.IAction;
+
+import com.github.museadmin.infinite_state_machine.data.access.action.Action;
+import com.github.museadmin.infinite_state_machine.data.access.action.IAction;
 
 /**
  * Process a normal shutdown of the state machine

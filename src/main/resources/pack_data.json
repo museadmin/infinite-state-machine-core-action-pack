@@ -7,7 +7,7 @@
       },
       "columns" : [
         "state",
-        "state_flag",
+        "state_name",
         "note"
       ],
       "values" : [
@@ -26,7 +26,7 @@
       },
       "columns" : [
         "action",
-        "phase",
+        "run_phase",
         "payload",
         "active"
       ],
@@ -38,6 +38,23 @@
         ["ActionPickUpInboundMessages", "RUNNING", "null", "0"],
         ["ActionProcessInboundMessages", "RUNNING", "null", "0"],
         ["ActionBeforeCreateMessagingDirectories", "STARTING", "null", "1"]
+      ]
+    },
+    {
+      "meta" : {
+        "table" : "properties",
+        "crud" : "insert"
+      },
+      "columns" : [
+        "property",
+        "value"
+      ],
+      "values" : [
+        ["msg_root", "messages"],
+        ["msg_in", "in"],
+        ["msg_in_processed", "in_processed"],
+        ["msg_out", "out"],
+        ["msg_out_processed", "out_processed"]
       ]
     }
   ]

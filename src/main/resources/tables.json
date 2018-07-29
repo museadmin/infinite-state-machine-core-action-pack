@@ -72,10 +72,10 @@
         {
           "primary_key" : false,
           "not_null" : true,
-          "name" : "state_flag",
+          "name" : "state_name",
           "type" : "TEXT",
           "default" : "",
-          "comment" : "Textual flag"
+          "comment" : "Textual name"
         },
         {
           "primary_key" : false,
@@ -109,7 +109,7 @@
         {
           "primary_key" : false,
           "not_null" : true,
-          "name" : "phase",
+          "name" : "run_phase",
           "type" : "TEXT",
           "default" : "STARTUP",
           "comment" : "The run phase this action is valid in"

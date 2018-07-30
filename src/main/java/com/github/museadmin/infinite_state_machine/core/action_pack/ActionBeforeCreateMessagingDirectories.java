@@ -14,25 +14,20 @@ public class ActionBeforeCreateMessagingDirectories extends Action {
    * The principal method for execution of the action
    */
   public void execute() {
-
-    if (notActive()) {return;}
-
-    System.out.println("In ActionBeforeCreateMessagingDirectories");
-
-    // Create the messaging directories as defined in the properties table
-    String root = queryProperty("msg_root");
-    createRunDirectory(root);
-    String dir = queryProperty("msg_in");
-    createRunDirectory(root + File.separator + dir);
-    dir = queryProperty("msg_in_processed");
-    createRunDirectory(root + File.separator + dir);
-    dir = queryProperty("msg_out");
-    createRunDirectory(root + File.separator + dir);
-    dir = queryProperty("msg_out_processed");
-    createRunDirectory(root + File.separator + dir);
-
-    // Deactivate this action
-    deactivate();
+    if (active()) {
+      // Create the messaging directories as defined in the properties table
+      String root = queryProperty("msg_root");
+      createRunDirectory(root);
+      String dir = queryProperty("msg_in");
+      createRunDirectory(root + File.separator + dir);
+      dir = queryProperty("msg_in_processed");
+      createRunDirectory(root + File.separator + dir);
+      dir = queryProperty("msg_out");
+      createRunDirectory(root + File.separator + dir);
+      dir = queryProperty("msg_out_processed");
+      createRunDirectory(root + File.separator + dir);
+      // Deactivate this action
+      deactivate();
+    }
   }
-
 }

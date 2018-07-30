@@ -13,11 +13,8 @@ public class ActionPickUpInboundMessages extends Action {
    * The principal method for execution of the action
    */
   public void execute() {
-
-    if (notActive()) {return;}
-
-    System.out.println("In ActionPickUpInboundMessages");
+    if (active()) {
+      System.out.println("In ActionPickUpInboundMessages");
+    }
   }
-
-
 }

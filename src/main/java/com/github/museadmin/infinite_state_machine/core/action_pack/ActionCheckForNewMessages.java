@@ -12,10 +12,8 @@ public class ActionCheckForNewMessages extends Action {
    * The principal method for execution of the action
    */
   public void execute() {
-
-    if (notActive()) {return;}
-
-    System.out.println("In ActionCheckForNewMessages");
+    if (active()) {
+      System.out.println("In ActionCheckForNewMessages");
+    }
   }
-
 }

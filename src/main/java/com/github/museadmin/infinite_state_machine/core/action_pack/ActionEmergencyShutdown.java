@@ -9,11 +9,8 @@ public class ActionEmergencyShutdown extends Action {
    * The principal method for execution of the action
    */
   public void execute() {
-
-    if (notActive()) {return;}
-
-    System.out.println("In ActionEmergencyShutdown");
-
+    if (active()) {
+      System.out.println("In ActionEmergencyShutdown");
+    }
   }
-
 }

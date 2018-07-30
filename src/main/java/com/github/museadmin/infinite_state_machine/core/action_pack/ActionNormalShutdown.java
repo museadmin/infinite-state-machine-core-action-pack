@@ -12,10 +12,9 @@ public class ActionNormalShutdown extends Action {
    * The principal method for execution of the action
    */
   public void execute() {
-
-    if (notActive()) {return;}
-
-    System.out.println("In ActionNormalShutdown");
+    if (active()) {
+      changeRunPhase("NORMAL_SHUTDOWN");
+      deactivate();
+    }
   }
-
 }

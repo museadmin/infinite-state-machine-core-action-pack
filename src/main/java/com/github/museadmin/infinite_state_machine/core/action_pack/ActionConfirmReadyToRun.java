@@ -15,6 +15,7 @@ public class ActionConfirmReadyToRun extends Action {
   public void execute() {
     if (active()) {
       if (beforeActionsComplete()) {
+        setState("READY_TO_RUN");
         changeRunPhase("RUNNING");
         activate("ActionNormalShutdown");
         deactivate();

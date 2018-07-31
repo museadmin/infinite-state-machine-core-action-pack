@@ -13,7 +13,7 @@ public class ActionNormalShutdown extends Action {
    */
   public void execute() {
     if (active()) {
-      changeRunPhase("NORMAL_SHUTDOWN");
+      changeRunPhase("STOPPED");
       deactivate();
     }
   }

@@ -7,5 +7,4 @@ import com.github.museadmin.infinite_state_machine.data.access.action.ActionPack
  * from ActionPack in infinite-state-machine-common
  */
 public class ISMCoreActionPack extends ActionPack {
-
 }

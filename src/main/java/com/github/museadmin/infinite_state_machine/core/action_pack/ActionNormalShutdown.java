@@ -13,8 +13,9 @@ public class ActionNormalShutdown extends Action {
    */
   public void execute() {
     if (active()) {
-      changeRunPhase("STOPPED");
-      deactivate();
+      if (afterActionsComplete()) {
+        changeRunPhase("STOPPED");
+      }
     }
   }
 }

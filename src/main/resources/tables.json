@@ -67,7 +67,7 @@
           "name" : "state",
           "type" : "BOOLEAN",
           "default" : "0",
-          "comment" : "State is true (1) or false (0)"
+          "comment" : "State is set or not"
         },
         {
           "primary_key" : false,
@@ -198,6 +198,43 @@
           "type" : "BOOLEAN",
           "default" : "false",
           "comment" : "Has the message been processed"
+        }
+      ]
+    },
+    {
+      "name" : "phases",
+      "columns" : [
+        {
+          "primary_key" : true,
+          "not_null" : true ,
+          "name" : "id",
+          "type" : "INTEGER",
+          "default" : "",
+          "comment" : ""
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "state",
+          "type" : "BOOLEAN",
+          "default" : "0",
+          "comment" : "phase is active or not"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "phase_name",
+          "type" : "TEXT",
+          "default" : "",
+          "comment" : "Textual name"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "note",
+          "type" : "TEXT",
+          "default" : "",
+          "comment" : "Note explaining what this phase is for"
         }
       ]
     }

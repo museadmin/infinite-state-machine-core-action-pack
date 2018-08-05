@@ -18,14 +18,23 @@ public class ActionBeforeCreateMessagingDirectories extends Action {
       // Create the messaging directories as defined in the properties table
       String root = queryProperty("msg_root");
       createRunDirectory(root);
+
       String dir = queryProperty("msg_in");
       createRunDirectory(root + File.separator + dir);
+      insertProperty("msg_in", root + File.separator + dir);
+
       dir = queryProperty("msg_in_processed");
       createRunDirectory(root + File.separator + dir);
+      insertProperty("msg_in_processed", root + File.separator + dir);
+
       dir = queryProperty("msg_out");
       createRunDirectory(root + File.separator + dir);
+      insertProperty("msg_out", root + File.separator + dir);
+
       dir = queryProperty("msg_out_processed");
       createRunDirectory(root + File.separator + dir);
+      insertProperty("msg_out_processed", root + File.separator + dir);
+
       // Deactivate this action
       deactivate();
     }

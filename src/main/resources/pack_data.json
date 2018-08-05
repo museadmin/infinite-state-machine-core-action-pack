@@ -11,12 +11,7 @@
         "note"
       ],
       "values" : [
-        ["0", "READY_TO_RUN", "We are ready to run"],
-        ["0", "EMERGENCY_SHUTDOWN", "Run phase is emergency shutdown"],
-        ["0", "NORMAL_SHUTDOWN", "Run phase is shutting down normally"],
-        ["0", "RUNNING", "Run phase is running"],
-        ["1", "STARTING", "Run phase is starting"],
-        ["0", "STOPPED", "Run phase is stopped"]
+        ["0", "READY_TO_RUN", "We are ready to run"]
       ]
     },
     {
@@ -55,6 +50,24 @@
         ["msg_in_processed", "in_processed"],
         ["msg_out", "out"],
         ["msg_out_processed", "out_processed"]
+      ]
+    },
+    {
+      "meta" : {
+        "table" : "phases",
+        "crud" : "insert"
+      },
+      "columns" : [
+        "state",
+        "phase_name",
+        "note"
+      ],
+      "values" : [
+        ["0", "EMERGENCY_SHUTDOWN", "Phase is emergency shutdown"],
+        ["0", "NORMAL_SHUTDOWN", "Phase is shutting down normally"],
+        ["0", "RUNNING", "Phase is running"],
+        ["1", "STARTING", "Phase is starting"],
+        ["0", "STOPPED", "Phase is stopped"]
       ]
     }
   ]

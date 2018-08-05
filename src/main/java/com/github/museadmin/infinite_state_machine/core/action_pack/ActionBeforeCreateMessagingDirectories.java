@@ -16,24 +16,44 @@ public class ActionBeforeCreateMessagingDirectories extends Action {
   public void execute() {
     if (active()) {
       // Create the messaging directories as defined in the properties table
-      String root = queryProperty("msg_root");
-      createRunDirectory(root);
+      String msg_root = queryProperty("msg_root");
+      createRunDirectory(msg_root);
 
-      String dir = queryProperty("msg_in");
-      createRunDirectory(root + File.separator + dir);
-      insertProperty("msg_in", root + File.separator + dir);
+      updateProperty(
+        "msg_in",
+        createRunDirectory(
+          msg_root +
+            File.separator +
+            queryProperty("msg_in")
+        )
+      );
 
-      dir = queryProperty("msg_in_processed");
-      createRunDirectory(root + File.separator + dir);
-      insertProperty("msg_in_processed", root + File.separator + dir);
+      updateProperty(
+        "msg_in_processed",
+        createRunDirectory(
+          msg_root +
+            File.separator +
+            queryProperty("msg_in_processed")
+        )
+      );
 
-      dir = queryProperty("msg_out");
-      createRunDirectory(root + File.separator + dir);
-      insertProperty("msg_out", root + File.separator + dir);
+      updateProperty(
+        "msg_out",
+        createRunDirectory(
+          msg_root +
+            File.separator +
+            queryProperty("msg_out")
+        )
+      );
 
-      dir = queryProperty("msg_out_processed");
-      createRunDirectory(root + File.separator + dir);
-      insertProperty("msg_out_processed", root + File.separator + dir);
+      updateProperty(
+        "msg_out_processed",
+        createRunDirectory(
+          msg_root +
+            File.separator +
+            queryProperty("msg_out_processed")
+        )
+      );
 
       // Deactivate this action
       deactivate();

@@ -29,7 +29,7 @@
         ["ActionConfirmReadyToRun", "STARTING", "null", "1"],
         ["ActionNormalShutdown", "ALL", "null", "0"],
         ["ActionEmergencyShutdown", "ALL", "null", "0"],
-        ["ActionCheckForNewMessages", "RUNNING", "null", "0"],
+        ["ActionCheckForNewMessages", "RUNNING", "null", "1"],
         ["ActionPickUpInboundMessages", "RUNNING", "null", "0"],
         ["ActionProcessInboundMessages", "RUNNING", "null", "0"],
         ["ActionBeforeCreateMessagingDirectories", "STARTING", "null", "1"]

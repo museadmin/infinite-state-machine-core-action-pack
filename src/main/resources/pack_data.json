@@ -49,7 +49,8 @@
         ["msg_in", "in"],
         ["msg_in_processed", "in_processed"],
         ["msg_out", "out"],
-        ["msg_out_processed", "out_processed"]
+        ["msg_out_processed", "out_processed"],
+        ["msg_rejected", "rejected"]
       ]
     },
     {

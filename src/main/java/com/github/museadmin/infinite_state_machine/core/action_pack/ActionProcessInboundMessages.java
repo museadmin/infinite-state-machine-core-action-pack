@@ -1,6 +1,6 @@
 package com.github.museadmin.infinite_state_machine.core.action_pack;
 
-import com.github.museadmin.infinite_state_machine.data.access.action.Action;
+import com.github.museadmin.infinite_state_machine.action.Action;
 
 /**
  * Unprocessed messages are in the messages table.

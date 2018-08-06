@@ -1,9 +1,10 @@
 package com.github.museadmin.infinite_state_machine.core.action_pack;
 
 
-import com.github.museadmin.infinite_state_machine.data.access.action.Action;
+import com.github.museadmin.infinite_state_machine.action.Action;
 
 import java.io.File;
+import java.util.Arrays;
 
 /**
  * Check if any new messages have arrived in the in directory
@@ -19,39 +20,21 @@ public class ActionBeforeCreateMessagingDirectories extends Action {
       String msg_root = queryProperty("msg_root");
       createRunDirectory(msg_root);
 
-      updateProperty(
+      Arrays.asList(
         "msg_in",
-        createRunDirectory(
-          msg_root +
-            File.separator +
-            queryProperty("msg_in")
-        )
-      );
-
-      updateProperty(
         "msg_in_processed",
-        createRunDirectory(
-          msg_root +
-            File.separator +
-            queryProperty("msg_in_processed")
-        )
-      );
-
-      updateProperty(
         "msg_out",
-        createRunDirectory(
-          msg_root +
-            File.separator +
-            queryProperty("msg_out")
-        )
-      );
-
-      updateProperty(
         "msg_out_processed",
-        createRunDirectory(
-          msg_root +
-            File.separator +
-            queryProperty("msg_out_processed")
+        "msg_rejected"
+      ).forEach(dir -> updateProperty(
+          dir,
+          createRunDirectory(
+            String.format("%s%s%s",
+              msg_root,
+              File.separator,
+              queryProperty(dir)
+            )
+          )
         )
       );
 

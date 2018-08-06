@@ -162,6 +162,14 @@
         {
           "primary_key" : false,
           "not_null" : true,
+          "name" : "recipient",
+          "type" : "TEXT",
+          "default" : "",
+          "comment" : "Address of recipient"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
           "name" : "action",
           "type" : "TEXT",
           "default" : "",
@@ -194,9 +202,17 @@
         {
           "primary_key" : false,
           "not_null" : true,
+          "name" : "direction",
+          "type" : "TEXT",
+          "default" : "inbound",
+          "comment" : "In or outbound message"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
           "name" : "processed",
           "type" : "BOOLEAN",
-          "default" : "false",
+          "default" : "0",
           "comment" : "Has the message been processed"
         }
       ]

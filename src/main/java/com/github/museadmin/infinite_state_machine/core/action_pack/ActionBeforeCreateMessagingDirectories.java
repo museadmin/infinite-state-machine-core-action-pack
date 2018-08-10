@@ -18,7 +18,7 @@ public class ActionBeforeCreateMessagingDirectories extends Action {
     if (active()) {
       // Create the messaging directories as defined in the properties table
       String msg_root = queryProperty("msg_root");
-      createRunDirectory(msg_root);
+      updateProperty("msg_root", createRunDirectory(msg_root));
 
       Arrays.asList(
         "msg_in",

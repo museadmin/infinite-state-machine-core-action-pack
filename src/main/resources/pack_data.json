@@ -31,7 +31,8 @@
         ["ActionEmergencyShutdown", "ALL", "null", "0"],
         ["ActionCheckForNewMessages", "RUNNING", "null", "1"],
         ["ActionProcessInboundMessages", "RUNNING", "null", "0"],
-        ["ActionBeforeCreateMessagingDirectories", "STARTING", "null", "1"]
+        ["ActionBeforeCreateMessagingDirectories", "STARTING", "null", "1"],
+        ["ActionAfterArchiveMessages", "NORMAL_SHUTDOWN", "null", "1"]
       ]
     },
     {

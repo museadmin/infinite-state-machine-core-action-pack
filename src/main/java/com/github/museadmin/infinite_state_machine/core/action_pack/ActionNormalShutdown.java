@@ -14,7 +14,7 @@ public class ActionNormalShutdown extends Action {
   public void execute() {
     if (active()) {
       if (afterActionsComplete()) {
-        changeRunPhase("STOPPED");
+        updateRunPhase("STOPPED");
       }
     }
   }

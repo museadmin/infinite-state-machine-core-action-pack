@@ -50,23 +50,17 @@ public class ActionCheckForNewMessages extends Action {
           moveMsg(file, "msg_rejected");
           continue;
         }
-
-        String action = message.get("action").toString();
-        // Test if action is active -> continue
-        if (active(action)) {
-          continue;
-        }
-
+        // Insert into DB and move to processed
         insertMessage(message);
-
         moveMsg(file, "msg_in_processed");
-        activate(action);
+
+        activate("ActionProcessInboundMessages");
       }
     }
   }
 
   /**
-   * Move a processed message file to the in_processed directory
+   * Move a message file to the in_processed dir or rejected dir
    * @param file The semaphore file for the message
    */
   private void moveMsg(File file, String target) {
@@ -76,6 +70,7 @@ public class ActionCheckForNewMessages extends Action {
       file.getAbsolutePath()
     );
 
+    // Source and target for moves
     String in = String.format("%s%s%s",
       queryProperty("msg_in"),
       File.separator,
@@ -87,13 +82,15 @@ public class ActionCheckForNewMessages extends Action {
       fileName
     );
 
-    // Move the message file first to the rejected directory
+    // Move the message file first to the directory
     new File(in + ".msg").renameTo(
       new File(String.format("%s.msg", tgt))
     );
 
-    // Move the semaphore file to the rejected directory
-    file.renameTo(new File(String.format("%s.smp", tgt)));
+    // Move the semaphore file to the directory
+    file.renameTo(
+      new File(String.format("%s.smp", tgt))
+    );
 
     if (target.equals("msg_rejected")) {
       LOGGER.error(

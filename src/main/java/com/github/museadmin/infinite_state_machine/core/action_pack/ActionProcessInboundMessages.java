@@ -9,28 +9,24 @@ import com.github.museadmin.infinite_state_machine.action.Action;
  */
 public class ActionProcessInboundMessages extends Action {
 
+  /**
+   * Look in the messages table for any messages marked as not processed
+   * If the target action isn't already active with another payload then
+   * write the payload from the message into the action's payload
+   * Then activate the action
+   */
   public void execute() {
-
     if (active()) {
-      // Get any unprocessed messages in the DB
       getUnprocessedMessages().forEach(
         row -> {
           String actionName = row.getString("action");
           if (! active(actionName)) {
-            // Set the action payload
             updatePayload(actionName, row.getString("payload"));
-
-            // activate the action
             activate(actionName);
-
-            // Mark the message as processed
             markMessageProcessed(row.getInt("id"));
           }
         }
       );
-
     }
-
-
   }
 }

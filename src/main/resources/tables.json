@@ -8,7 +8,10 @@
           "not_null" : true,
           "name" : "dependency_id",
           "type" : "INTEGER",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : ""
         },
         {
@@ -16,7 +19,10 @@
           "not_null" : true,
           "name" : "dependency",
           "type" : "CHAR",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Name of the dependency"
         },
         {
@@ -24,7 +30,10 @@
           "not_null" : true,
           "name" : "version",
           "type" : "CHAR",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Version number of the dependency"
         }
       ]
@@ -37,7 +46,10 @@
           "not_null" : true,
           "name" : "property",
           "type" : "CHAR",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "A property"
         },
         {
@@ -45,7 +57,10 @@
           "not_null" : false,
           "name" : "value",
           "type" : "CHAR",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "The value of the property"
         }
       ]
@@ -58,7 +73,10 @@
           "not_null" : true ,
           "name" : "id",
           "type" : "INTEGER",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : ""
         },
         {
@@ -66,7 +84,10 @@
           "not_null" : false,
           "name" : "state",
           "type" : "BOOLEAN",
-          "default" : "0",
+          "default" : {
+            "type" : "string",
+            "value" : "0"
+          },
           "comment" : "State is set or not"
         },
         {
@@ -74,7 +95,10 @@
           "not_null" : true,
           "name" : "state_name",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Textual name"
         },
         {
@@ -82,7 +106,10 @@
           "not_null" : false,
           "name" : "note",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Note explaining what this state is for"
         }
       ]
@@ -95,7 +122,10 @@
           "not_null" : true,
           "name" : "id",
           "type" : "INTEGER",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : ""
         },
         {
@@ -103,7 +133,10 @@
           "not_null" : false,
           "name" : "action",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "The textual name. e.g. ActionConfirmReadyToRun"
         },
         {
@@ -111,7 +144,10 @@
           "not_null" : true,
           "name" : "run_phase",
           "type" : "TEXT",
-          "default" : "STARTUP",
+          "default" : {
+            "type" : "string",
+            "value" : "STARTUP"
+          },
           "comment" : "The run phase this action is valid in"
         },
         {
@@ -119,7 +155,10 @@
           "not_null" : false,
           "name" : "payload",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Any payload required for action"
         },
         {
@@ -127,7 +166,10 @@
           "not_null" : true,
           "name" : "active",
           "type" : "BOOLEAN",
-          "default" : "0",
+          "default" : {
+            "type" : "string",
+            "value" : "0"
+          },
           "comment" : "Is this action active or not?"
         }
       ]
@@ -140,7 +182,10 @@
           "not_null" : true,
           "name" : "id",
           "type" : "INTEGER",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Record ID in recipient messages table"
         },
         {
@@ -148,7 +193,10 @@
           "not_null" : true,
           "name" : "sender",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Return address of sender"
         },
         {
@@ -156,7 +204,10 @@
           "not_null" : true,
           "name" : "sender_id",
           "type" : "INTEGER",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Record ID in sender messages table"
         },
         {
@@ -164,7 +215,10 @@
           "not_null" : true,
           "name" : "recipient",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Address of recipient"
         },
         {
@@ -172,7 +226,10 @@
           "not_null" : true,
           "name" : "action",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Name of the action that handles this message"
         },
         {
@@ -180,7 +237,10 @@
           "not_null" : false,
           "name" : "payload",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Json body of msg payload"
         },
         {
@@ -188,7 +248,10 @@
           "not_null" : true,
           "name" : "sent",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Timestamp msg sent by sender"
         },
         {
@@ -196,7 +259,10 @@
           "not_null" : true,
           "name" : "received",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "function",
+            "value" : "(strftime('%s', 'now'))"
+          },
           "comment" : "Timestamp ism loaded message into database"
         },
         {
@@ -204,7 +270,10 @@
           "not_null" : true,
           "name" : "direction",
           "type" : "TEXT",
-          "default" : "inbound",
+          "default" : {
+            "type" : "string",
+            "value" : "inbound"
+          },
           "comment" : "In or outbound message"
         },
         {
@@ -212,7 +281,10 @@
           "not_null" : true,
           "name" : "processed",
           "type" : "BOOLEAN",
-          "default" : "0",
+          "default" : {
+            "type" : "string",
+            "value" : "0"
+          },
           "comment" : "Has the message been processed"
         }
       ]
@@ -225,7 +297,10 @@
           "not_null" : true ,
           "name" : "id",
           "type" : "INTEGER",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : ""
         },
         {
@@ -233,7 +308,10 @@
           "not_null" : false,
           "name" : "state",
           "type" : "BOOLEAN",
-          "default" : "0",
+          "default" : {
+            "type" : "string",
+            "value" : "0"
+          },
           "comment" : "phase is active or not"
         },
         {
@@ -241,7 +319,10 @@
           "not_null" : true,
           "name" : "phase_name",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Textual name"
         },
         {
@@ -249,7 +330,10 @@
           "not_null" : false,
           "name" : "note",
           "type" : "TEXT",
-          "default" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
           "comment" : "Note explaining what this phase is for"
         }
       ]

@@ -1,6 +1,6 @@
 package com.github.museadmin.infinite_state_machine.core.action_pack;
 
-import com.github.museadmin.infinite_state_machine.action.Action;
+import com.github.museadmin.infinite_state_machine.common.action.Action;
 
 /**
  * Action that verifies the state of the ISM and confirms

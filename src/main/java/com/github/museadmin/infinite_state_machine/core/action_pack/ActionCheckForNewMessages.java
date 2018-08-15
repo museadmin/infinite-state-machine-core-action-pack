@@ -37,15 +37,15 @@ public class ActionCheckForNewMessages extends Action {
         // Test for malformed msg
         if (
           message.isNull("action") ||
-            message.get("action") == "" ||
+            message.get("action").equals("") ||
             message.isNull("sender") ||
-            message.get("sender") == "" ||
+            message.get("sender").equals("") ||
             message.isNull("sender_id") ||
-            message.get("sender_id") == "" ||
+            message.get("sender_id").equals("") ||
             message.isNull("recipient") ||
-            message.get("recipient") == "" ||
+            message.get("recipient").equals("") ||
             message.isNull("sent") ||
-            message.get("sent") == ""
+            message.get("sent").equals("")
         ) {
           moveMsg(file, "msg_rejected");
           continue;

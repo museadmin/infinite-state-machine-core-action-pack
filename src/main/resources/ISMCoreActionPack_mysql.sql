@@ -1,11 +1,9 @@
-
-
-DROP DATABASE IF EXISTS ism;
-CREATE DATABASE IF NOT EXISTS ism;
 USE ism;
 
+SET autocommit=0;
+
 CREATE TABLE dependencies (
-dependency_id INTEGER NOT NULL PRIMARY KEY,  
+dependency_id INTEGER NOT NULL PRIMARY KEY,
 dependency TEXT NOT NULL COMMENT 'Name of the dependency',
 version TEXT NOT NULL COMMENT 'Version number of the dependency'
 );
@@ -23,7 +21,7 @@ INSERT INTO properties VALUES('msg_out_processed', 'msg_out_processed');
 INSERT INTO properties VALUES('msg_rejected', 'msg_rejected');
 
 CREATE TABLE states (
-id INTEGER NOT NULL PRIMARY KEY,  
+id INTEGER NOT NULL PRIMARY KEY,
 state BOOLEAN DEFAULT '0' COMMENT 'State is set or not',
 state_name TEXT NOT NULL COMMENT 'Textual name',
 note TEXT COMMENT 'Note explaining what this state is for'
@@ -31,7 +29,7 @@ note TEXT COMMENT 'Note explaining what this state is for'
 INSERT INTO states VALUES(1,0,'READY_TO_RUN','We are ready to run');
 
 CREATE TABLE actions (
-id INTEGER NOT NULL PRIMARY KEY,  
+id INTEGER NOT NULL PRIMARY KEY,
 action TEXT COMMENT 'The textual name. e.g. ActionConfirmReadyToRun',
 run_phase TEXT NOT NULL COMMENT 'The run phase this action is valid in',
 payload TEXT COMMENT 'Any payload required for action',
@@ -66,7 +64,7 @@ SET NEW.`direction` = CASE WHEN NEW.direction IS NULL THEN 'inbound' ELSE NEW.di
 
 
 CREATE TABLE phases (
-id INTEGER NOT NULL PRIMARY KEY,  
+id INTEGER NOT NULL PRIMARY KEY,
 state BOOLEAN DEFAULT '0' COMMENT 'phase is active or not',
 phase_name TEXT NOT NULL COMMENT 'Textual name',
 note TEXT COMMENT 'Note explaining what this phase is for'
@@ -77,3 +75,4 @@ INSERT INTO phases VALUES(3,0,'RUNNING','Phase is running');
 INSERT INTO phases VALUES(4,1,'STARTING','Phase is starting');
 INSERT INTO phases VALUES(5,0,'STOPPED','Phase is stopped');
 
+COMMIT;

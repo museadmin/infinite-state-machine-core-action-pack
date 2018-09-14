@@ -1,0 +1,362 @@
+{
+  "artifact_id" : "infinite-state-machine-core-action-pack",
+  "action_pack" : "ISMCoreActionPack",
+  "tables": [
+    {
+      "name" : "dependencies",
+      "columns" : [
+        {
+          "primary_key" : true,
+          "not_null" : true,
+          "name" : "dependency_id",
+          "type" : "INTEGER",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : ""
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "dependency",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Name of the dependency"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "version",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Version number of the dependency"
+        }
+      ]
+    },
+    {
+      "name" : "properties",
+      "columns" : [
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "property",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "A property"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "value",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "The value of the property"
+        }
+      ]
+    },
+    {
+      "name" : "states",
+      "columns" : [
+        {
+          "primary_key" : true,
+          "not_null" : true ,
+          "name" : "id",
+          "type" : "INTEGER",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : ""
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "state",
+          "type" : "BOOLEAN",
+          "default" : {
+            "type" : "string",
+            "value" : "0"
+          },
+          "comment" : "State is set or not"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "state_name",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Textual name"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "note",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Note explaining what this state is for"
+        }
+      ]
+    },
+    {
+      "name" : "actions",
+      "columns" : [
+        {
+          "primary_key" : true,
+          "not_null" : true,
+          "name" : "id",
+          "type" : "INTEGER",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : ""
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "action",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "The textual name. e.g. ActionConfirmReadyToRun"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "run_phase",
+          "type" : "TEXT",
+          "size" : "255",
+          "default" : {
+            "type" : "string",
+            "value" : "STARTUP"
+          },
+          "comment" : "The run phase this action is valid in"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "payload",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Any payload required for action"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "active",
+          "type" : "BOOLEAN",
+          "default" : {
+            "type" : "string",
+            "value" : "0"
+          },
+          "comment" : "Is this action active or not?"
+        }
+      ]
+    },
+    {
+      "name" : "messages",
+      "columns" : [
+        {
+          "primary_key" : true,
+          "not_null" : true,
+          "name" : "id",
+          "type" : "INTEGER",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Record ID in recipient messages table"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "sender",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Return address of sender"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "sender_id",
+          "type" : "INTEGER",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Record ID in sender messages table"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "recipient",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Address of recipient"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "action",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Name of the action that handles this message"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "payload",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Json body of msg payload"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "sent",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Timestamp msg sent by sender"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "received",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "function",
+            "value" : "(strftime('%s', 'now'))"
+          },
+          "comment" : "Timestamp ism loaded message into database"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "direction",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : "inbound"
+          },
+          "comment" : "In or outbound message"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "processed",
+          "type" : "BOOLEAN",
+          "default" : {
+            "type" : "string",
+            "value" : "0"
+          },
+          "comment" : "Has the message been processed"
+        }
+      ]
+    },
+    {
+      "name" : "phases",
+      "columns" : [
+        {
+          "primary_key" : true,
+          "not_null" : true ,
+          "name" : "id",
+          "type" : "INTEGER",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : ""
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "state",
+          "type" : "BOOLEAN",
+          "default" : {
+            "type" : "string",
+            "value" : "0"
+          },
+          "comment" : "phase is active or not"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : true,
+          "name" : "phase_name",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Textual name"
+        },
+        {
+          "primary_key" : false,
+          "not_null" : false,
+          "name" : "note",
+          "type" : "TEXT",
+          "size" : "",
+          "default" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "comment" : "Note explaining what this phase is for"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "artifact_id" : "infinite-state-machine-core-action-pack",
+  "action_pack" : "ISMCoreActionPack",
+  "items" : [
+    {
+      "meta" : {
+        "table" : "states",
+        "crud" : "insert"
+      },
+      "columns" : [
+        "state",
+        "state_name",
+        "note"
+      ],
+      "values" : [
+        ["0", "READY_TO_RUN", "We are ready to run"]
+      ]
+    },
+    {
+      "meta" : {
+        "table" : "actions",
+        "crud" : "insert"
+      },
+      "columns" : [
+        "action",
+        "run_phase",
+        "payload",
+        "active"
+      ],
+      "values" : [
+        ["ActionConfirmReadyToRun", "STARTING", "null", "1"],
+        ["ActionNormalShutdown", "ALL", "null", "0"],
+        ["ActionEmergencyShutdown", "ALL", "null", "0"],
+        ["ActionCheckForNewMessages", "RUNNING", "null", "1"],
+        ["ActionProcessInboundMessages", "RUNNING", "null", "0"],
+        ["ActionBeforeCreateMessagingDirectories", "STARTING", "null", "1"],
+        ["ActionAfterArchiveMessages", "NORMAL_SHUTDOWN", "null", "1"]
+      ]
+    },
+    {
+      "meta" : {
+        "table" : "properties",
+        "crud" : "insert"
+      },
+      "columns" : [
+        "property",
+        "value"
+      ],
+      "values" : [
+        ["msg_root", "messages"],
+        ["msg_in", "in"],
+        ["msg_in_processed", "in_processed"],
+        ["msg_out", "out"],
+        ["msg_out_processed", "out_processed"],
+        ["msg_rejected", "rejected"]
+      ]
+    },
+    {
+      "meta" : {
+        "table" : "phases",
+        "crud" : "insert"
+      },
+      "columns" : [
+        "state",
+        "phase_name",
+        "note"
+      ],
+      "values" : [
+        ["0", "EMERGENCY_SHUTDOWN", "Phase is emergency shutdown"],
+        ["0", "NORMAL_SHUTDOWN", "Phase is shutting down normally"],
+        ["0", "RUNNING", "Phase is running"],
+        ["1", "STARTING", "Phase is starting"],
+        ["0", "STOPPED", "Phase is stopped"]
+      ]
+    }
+  ]
+}

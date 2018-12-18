@@ -10,7 +10,7 @@ public class ActionConfirmReadyToRun extends Action {
 
   /**
    * Confirm we've got through the bootstrapping process ok.
-   * All BEFORE actions completed
+   * and all BEFORE actions completed
    */
   public void execute() {
     if (active()) {

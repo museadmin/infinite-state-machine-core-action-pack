@@ -6,6 +6,7 @@ import com.google.common.io.Files;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.nio.file.Paths;
 
 /**
  * Check if any new messages have arrived in the in directory.
@@ -48,13 +49,11 @@ public class ActionCheckForNewMessages extends Action {
             message.get("sent").equals("")
         ) {
           moveMsg(file, "msg_rejected");
-          continue;
+        } else {
+          // Insert into DB and move to processed
+          insertMessage(message);
+          moveMsg(file, "msg_in_processed");
         }
-        // Insert into DB and move to processed
-        insertMessage(message);
-        moveMsg(file, "msg_in_processed");
-
-        activate("ActionProcessInboundMessages");
       }
     }
   }
@@ -71,16 +70,14 @@ public class ActionCheckForNewMessages extends Action {
     );
 
     // Source and target for moves
-    String in = String.format("%s%s%s",
+    String in = Paths.get(
       queryProperty("msg_in"),
-      File.separator,
       fileName
-    );
-    String tgt = String.format("%s%s%s",
+    ).toString();
+    String tgt = Paths.get(
       queryProperty(target),
-      File.separator,
       fileName
-    );
+    ).toString();
 
     // Move the message file first to the directory
     new File(in + ".msg").renameTo(
@@ -92,6 +89,7 @@ public class ActionCheckForNewMessages extends Action {
       new File(String.format("%s.smp", tgt))
     );
 
+    // Do this here as this is where the filename etc. is being resolved already
     if (target.equals("msg_rejected")) {
       LOGGER.error(
         String.format("Malformed message file: %s.msg", tgt)

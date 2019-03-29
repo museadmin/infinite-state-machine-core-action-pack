@@ -1,6 +1,7 @@
 {
   "artifact_id" : "infinite-state-machine-core-action-pack",
   "action_pack" : "ISMCoreActionPack",
+  "schema": "default",
   "tables": [
     {
       "name" : "dependencies",

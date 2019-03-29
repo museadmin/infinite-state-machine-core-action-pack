@@ -13,6 +13,7 @@ public class ActionAfterArchiveMessages extends Action {
   public void execute() {
     if(active()) {
       String source = queryProperty("msg_root");
+      // TODO Set this from a property?
       String target = "/tmp/msgs.zip";
       try {
         ZipDirectory.zipDirectory(source, target);

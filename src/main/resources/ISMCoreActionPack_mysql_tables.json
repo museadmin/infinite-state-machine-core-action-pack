@@ -1,0 +1,12 @@
+{
+  "artifact_id" : "infinite-state-machine-core-action-pack",
+  "action_pack" : "ISMCoreActionPack",
+  "tables": [
+    "CREATE TABLE dependencies (\ndependency_id INT NOT NULL AUTO_INCREMENT,\ndependency TEXT NOT NULL COMMENT 'Name of the dependency',\nversion TEXT NOT NULL COMMENT 'Version number of the dependency',\nPRIMARY KEY (dependency_id));",
+    "CREATE TABLE properties (\nproperty TEXT NOT NULL COMMENT 'A property',\nvalue TEXT COMMENT 'The value of the property'\n);",
+    "CREATE TABLE states (\nid INTEGER NOT NULL AUTO_INCREMENT,\nstate BOOLEAN DEFAULT '0' COMMENT 'State is set or not',\nstate_name TEXT NOT NULL COMMENT 'Textual name',\nnote TEXT COMMENT 'Note explaining what this state is for',\n PRIMARY KEY(id)\n);",
+    "CREATE TABLE actions (\nid INTEGER NOT NULL AUTO_INCREMENT,\naction TEXT COMMENT 'The textual name. e.g. ActionConfirmReadyToRun',\nrun_phase TEXT NOT NULL COMMENT 'The run phase this action is valid in',\npayload TEXT COMMENT 'Any payload required for action',\nactive BOOLEAN NOT NULL DEFAULT '0' COMMENT 'Is this action active or not?',\n PRIMARY KEY(id)\n);",
+    "CREATE TABLE messages (\nid INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Record ID in recipient messages table',\nsender TEXT NOT NULL COMMENT 'Return address of sender',\nsender_id INTEGER NOT NULL COMMENT 'Record ID in sender messages table',\nrecipient TEXT NOT NULL COMMENT 'Address of recipient',\naction TEXT NOT NULL COMMENT 'Name of the action that handles this message',\npayload TEXT COMMENT 'Json body of msg payload',\nsent TEXT NOT NULL COMMENT 'Timestamp msg sent by sender',\nreceived TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT 'Time ism loaded message into database',\ndirection TEXT NOT NULL COMMENT 'In or outbound message',\nprocessed BOOLEAN NOT NULL DEFAULT '0' COMMENT 'Has the message been processed?',\nPRIMARY KEY(id)\n);",
+    "CREATE TABLE phases (\nid INTEGER NOT NULL AUTO_INCREMENT,\nstate BOOLEAN DEFAULT '0' COMMENT 'phase is active or not',\nphase_name TEXT NOT NULL COMMENT 'Textual name',\nnote TEXT COMMENT 'Note explaining what this phase is for',\n PRIMARY KEY(id)\n);"
+  ]
+}

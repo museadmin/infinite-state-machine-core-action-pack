@@ -1,6 +1,9 @@
 package com.github.museadmin.infinite_state_machine.core.action_pack;
 
 import com.github.museadmin.infinite_state_machine.common.action.Action;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 /**
  * After new messages are inserted into the database they need to be
@@ -28,5 +31,32 @@ public class ActionProcessInboundMessages extends Action {
         }
       );
     }
+  }
+
+  /**
+   * Retrieve an array of unprocessed messages form the database messages table
+   * @return ArrayList of messages as JSONObjects
+   */
+  private ArrayList<JSONObject> getUnprocessedMessages() {
+    return dataAccessLayer.executeSqlQuery(
+        String.format(
+            "SELECT * from messages WHERE processed = '%s';",
+            dataAccessLayer.SQL_FALSE
+        )
+    );
+  }
+
+  /**
+   * Set the processed field true of a message record
+   * @param id The ID (PK) of the record
+   */
+  private void markMessageProcessed(Integer id) {
+    dataAccessLayer.executeSqlStatement(
+        String.format(
+            "UPDATE messages SET processed = '%s' WHERE id = %d;",
+            dataAccessLayer.SQL_TRUE,
+            id
+        )
+    );
   }
 }

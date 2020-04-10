@@ -7,7 +7,7 @@
     <artifactId>infinite-state-machine-core-action-pack</artifactId>
     <name>${project.groupId}:${project.artifactId}</name>
     <description>The core actions required to bootstrap the infinite-state-machine project</description>
-    <version>1.1.9</version>
+    <version>1.1.10</version>
     <packaging>jar</packaging>
 
     <!--The identifier of the parent POM-->
@@ -63,7 +63,7 @@
         <dependency>
             <groupId>com.github.museadmin</groupId>
             <artifactId>infinite-state-machine-common</artifactId>
-            <version>1.1.8</version>
+            <version>1.1.11</version>
         </dependency>
     </dependencies>
 </project>

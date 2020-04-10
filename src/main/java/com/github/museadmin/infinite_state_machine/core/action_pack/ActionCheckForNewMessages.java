@@ -99,4 +99,34 @@ public class ActionCheckForNewMessages extends Action {
       );
     }
   }
+
+  /**
+   * Insert a message into the database. Assumes valid json object.
+   * @param message JSONObject the message
+   */
+  private void insertMessage(JSONObject message) {
+
+    dataAccessLayer.executeSqlStatement(
+        "INSERT INTO messages " +
+            "(sender, " +
+            "sender_id, " +
+            "recipient, " +
+            "action, " +
+            "sent, " +
+            "direction, " +
+            "processed, " +
+            "payload) " +
+            "VALUES " +
+            "(" +
+            "'" + message.get("sender") + "', " +
+            "'" + message.get("sender_id") + "', " +
+            "'" + message.get("recipient") + "', " +
+            "'" + message.get("action") + "', " +
+            "'" + message.get("sent") + "', " +
+            "'" + message.get("direction") + "', " +
+            "'" + message.get("processed") + "', " +
+            "'" + message.get("payload") + "'" +
+            ");"
+    );
+  }
 }

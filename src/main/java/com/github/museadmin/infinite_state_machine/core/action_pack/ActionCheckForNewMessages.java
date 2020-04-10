@@ -61,6 +61,7 @@ public class ActionCheckForNewMessages extends Action {
 
   /**
    * Move a message file to the in_processed dir or rejected dir
+   *
    * @param file The semaphore file for the message
    */
   private void moveMsg(File file, String target) {
